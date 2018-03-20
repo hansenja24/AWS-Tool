@@ -1,0 +1,62 @@
+{
+  "roleName": "s3-ddb-ses-lambda",
+  "policies": [
+    {
+      "document": {
+        "Version": "2012-10-17",
+        "Statement": [
+          {
+            "Sid": "VisualEditor0",
+            "Effect": "Allow",
+            "Action": [
+              "dynamodb:UntagResource",
+              "dynamodb:ListTables",
+              "dynamodb:ListBackups",
+              "dynamodb:PurchaseReservedCapacityOfferings",
+              "dynamodb:ListTagsOfResource",
+              "dynamodb:DescribeTimeToLive",
+              "dynamodb:ListStreams",
+              "s3:ListObjects",
+              "dynamodb:DescribeReservedCapacityOfferings",
+              "dynamodb:TagResource",
+              "s3:ListAllMyBuckets",
+              "ses:*",
+              "dynamodb:DescribeReservedCapacity",
+              "s3:HeadBucket",
+              "dynamodb:DescribeLimits"
+            ],
+            "Resource": "*"
+          },
+          {
+            "Sid": "VisualEditor1",
+            "Effect": "Allow",
+            "Action": [
+              "s3:*",
+              "dynamodb:*"
+            ],
+            "Resource": [
+              "arn:aws:dynamodb:*:*:table/*",
+              "arn:aws:s3:::*/*"
+            ]
+          },
+          {
+            "Sid": "VisualEditor2",
+            "Effect": "Allow",
+            "Action": [
+              "s3:*",
+              "dynamodb:*"
+            ],
+            "Resource": [
+              "arn:aws:s3:::*",
+              "arn:aws:dynamodb:*:*:table/*/index/*"
+            ]
+          }
+        ]
+      },
+      "name": "s3-ddb-ses-lambda",
+      "id": "ANPAJNQ5U4242US4GDWKY",
+      "type": "managed",
+      "arn": "arn:aws:iam::211560526318:policy/s3-ddb-ses-lambda"
+    }
+  ]
+}
